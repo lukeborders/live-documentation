@@ -54,12 +54,7 @@ def createDoc():
 	text = request.form['doc']
 	documents = db.documents
 	documents.insert_one({'lang':1})
-	if text = "":
-		flash("Fill all of fields")
-	else:
-	return pprint(lang,text)
-
-
+	return print(lang,text)
 @app.route('/')
 def render_home():
     return render_template('home.html')
