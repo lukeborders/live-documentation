@@ -54,9 +54,12 @@ def createDoc():
 	text = str(request.form['doc']) #creates variable based on data from text/document form
 	documents = db.documents
 	collection.insert_one({'lang':1})
-	post='' #creates empty string
-	post+='<h2> Language: ' + str(lang) + '</h2> <br> <h2> Markup: ' + str(text) + '</h2>' 
-	return Markup(post)
+
+	poststr='<table> <th> Language:  </th> <th> Text: </th>' #creates Table with data
+	poststr+='<td> ' + str(lang) + '</td> <br> </td>' + str(text) + '</td>' #finishes table with values
+	post += Markup(poststr)
+	return post
+
 @app.route('/')
 def render_home():
     return render_template('home.html')
