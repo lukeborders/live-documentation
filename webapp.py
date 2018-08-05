@@ -48,21 +48,17 @@ fs = gridfs.GridFS(db)
 app.secret_key = os.environ['SECRET_KEY']
 oauth = OAuth(app)
 
-@app.route('/login')
-def login():
-    return google.authorize(callback=url_for('authorized', _external=True))
-
-@app.context_processor
-def inject_logged_in():
-    return {"logged_in":('google_token' in session)}
-
 @app.route("/document-create", methods=['POST'])
 def createDoc():
 	lang = request.form['lang']
 	text = request.form['doc']
 	documents = db.documents
 	documents.insert_one({'lang':1})
+	if text = "":
+		flash("Fill all of fields")
+	else:
 	return pprint(lang,text)
+
 
 @app.route('/')
 def render_home():
