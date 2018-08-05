@@ -1,0 +1,110 @@
+<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+  				<div class="modal-dialog modal-dialog-centered modal-lg">
+    				<!-- Modal content-->
+    				<div class="modal-content">
+      					<div class="modal-header">
+						<h4 class="modal-title">Listings</h4>
+        					<button type="button" class="close" data-dismiss="modal">&times;</button>
+      					</div>
+      					<div class="modal-body">
+        					{{ listingTable }}
+      					</div>
+      					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#makeListing" data-dismiss="modal">Create Listing</button>
+      					</div>
+    				</div>
+  				</div>
+			</div>
+			<div id="makeListing" class="modal fade" role="dialog">
+  				<div class="modal-dialog modal-dialog-centered">
+    				<!-- Modal content-->
+    				<div class="modal-content">
+      					<div class="modal-header">
+						<h4 class="modal-title">Create a Listing</h4>
+        					<button type="button" class="close" data-dismiss="modal">&times;</button>
+      					</div>
+      					<div class="modal-body">
+							<form action="/uploadimg" method="post" enctype="multipart/form-data">
+								<img class="imgpreview" src="{{ url_for('static',filename='img/preview.png') }}" alt="your image" width="200" height="200">
+								<br>
+								<input type="file" name="file" accept="image/*" id="imgtoupload">
+								<br>
+								<label for="ltitle">Title</label>
+								<input id="ltitle" name="ltitle" type="text" class="form-control" placeholder="Pencil" maxlength="40">
+								<label for="category">Category</label>
+								<select class="form-control" id="form-control" name="thecategory">
+									<option value="Animals">Animals</option>
+									<option value="Books">Books</option>
+									<option value="Board Games">Board Games</option>
+									<option value="Cars">Cars</option>
+									<option value="Computers">Computers</option>
+									<option value="Dieting">Dieting</option>
+									<option value="Dvds and Movies">DVD's & Movies</option>
+									<option value="Electronics">Electronics</option>
+									<option value="Education">Education</option>
+									<option value="Food">Food</option>
+									<option value="Gallery">Gallery</option>
+									<option value="Garbage">Garbage</option>
+									<option value="Household Items">Household Items</option>
+									<option value="Happy">Happy Products</option>
+									<option value="Instruments">Instruments</option>
+									<option value="Iguanas">Iguanas</option>
+									<option value="Jewelry">Jewelry</option>
+									<option value="Large Products">Large Products</option>
+									<option value="Lamps">Lamps</option>
+									<option value="Music">Music</option>
+									<option value="Magical Products">Magical Products</option>
+									<option value="Pottery">Pottery</option>
+									<option value="Pets">Pets</option>
+									<option value="Sporting Goods">Sporting Goods</option>
+									<option value="Spooky Products">Spooky Products</option>
+									<option value="Toys">Toys</option>
+									<option value="Traveling">Traveling</option>
+									<option value="Video Games">Video Games</option>
+									<option value="Vehicles">Vehicles</option>
+									<option value="Winter Products">Winter Products</option>
+									<option value="X-ray Machines">X-Ray Machines</option>
+									<option value="Yoga Products">Yoga Products</option>
+									<option value="Yogurt">Yogurt</option>
+									<option value="ZzZ">ZzZ</option>
+									<option value="etc">Other Products</option>
+								</select>
+								<label for="des">Description</label>
+								<input id="des" name="des" type="text" class="form-control" placeholder="New and sealed in package." maxlength="40">
+								<label for="pricenumber">Price</label>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">$</span>
+									</div>
+									<input id="pricenumber" name="pprice" type="number" class="form-control" placeholder="10.00" maxlength="10" min="0" step="any">
+								</div>
+								<label for="paypaladdress">PayPal</label>
+								<input id="paypaladdress" name="ppemail" type="email" class="form-control" placeholder="email@gmail.com" maxlength="40">
+								<br>
+								<button type="submit" class="btn btn-success">Create</button>
+							</form>
+      					</div>
+      					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      					</div>
+    				</div>
+  				</div>
+			</div>
+			<div id="editModal" class="modal fade" role="dialog">
+  				<div class="modal-dialog modal-dialog-centered">
+    				<!-- Modal content-->
+    				<div class="modal-content">
+      					<div class="modal-header">
+						<h4 class="modal-title">Edit Your Listing</h4>
+        					<button type="button" class="close" data-dismiss="modal">&times;</button>
+      					</div>
+      					<div class="modal-body">
+							<p id="editclass"></p>
+      					</div>
+      					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      					</div>
+    				</div>
+  				</div>
+			</div>
