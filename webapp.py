@@ -48,14 +48,15 @@ fs = gridfs.GridFS(db)
 app.secret_key = os.environ['SECRET_KEY']
 oauth = OAuth(app)
 
-@app.route("/document-create", methods=['POST'])
+@app.route("/document-create", methods=['POST']) #create documentation post
 def createDoc():
-	lang = request.form['lang']
-	text = str(request.form['doc'])
+	lang = request.form['lang'] #create variable based on data from the language form
+	text = str(request.form['doc']) #creates variable based on data from text/document form
 	documents = db.documents
 	collection.insert_one({'lang':1})
-	Markup += '<h2> Language: ' + lang + '</h2> <br> <h2> Markup: ' + text + '</h2>' 
-	return Markup
+	post='' #creates empty string
+	post+='<h2> Language: ' + str(lang) + '</h2> <br> <h2> Markup: ' + str(text) + '</h2>' 
+	return Markup(post)
 @app.route('/')
 def render_home():
     return render_template('home.html')
