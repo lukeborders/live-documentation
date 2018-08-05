@@ -54,7 +54,7 @@ def createDoc():
 	text = str(request.form['doc'])
 	documents = db.documents
 	documents.insert_one({'lang':1})
-	return print(lang,text)
+	return print(text)
 @app.route('/')
 def render_home():
     return render_template('home.html')
