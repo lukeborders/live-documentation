@@ -55,10 +55,15 @@ def createDoc():
 	documents = db.documents
 	collection.insert_one({'lang':1})
 
-	poststr='<table> <th> Language:  </th> <th> Text: </th>' #creates Table with data
-	poststr+='<td> ' + str(lang) + '</td> <br> </td>' + str(text) + '</td>' #finishes table with values
+	poststr='<table> <tr> <th> Language:  </th> <th> Text: </th> </tr>' #creates Table with data
+	poststr+='<td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>' #finishes table with values
 	post += Markup(poststr)
-	return post
+	if post = '<table> <tr> <th> Language: </th> <th> Text: </th> </tr> <t
+	r><td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>':
+		print('everything should be working lmao')
+	else:
+		print("o shit it aint working OOF DAMN.")
+		return post
 
 @app.route('/')
 def render_home():
