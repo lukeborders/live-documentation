@@ -58,7 +58,7 @@ def inject_logged_in():
 @app.route("/document-create", methods=['POST'])
 def createDoc():
 	lang = request.form['lang']
-	text = request.form['text']
+	text = request.form['doc']
 	return pprint(lang, text)
 
 
