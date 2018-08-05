@@ -7,6 +7,7 @@ from threading import Lock
 from pymongo import MongoClient
 
 
+
 import pprint
 import os
 import json
@@ -48,14 +49,19 @@ fs = gridfs.GridFS(db)
 app.secret_key = os.environ['SECRET_KEY']
 oauth = OAuth(app)
 
+
+@app.route('/')
+def render_home():
+	session['user'] = 'Luke'
+    return render_template('home.html')
+
 @app.route("/document-create", methods=['POST']) #create documentation post
 def createDoc():
 	lang = request.form['lang'] #create variable based on data from the language form
-	text = str(request.form['doc']) #creates variable based on data from text/document form
-	documents = db.documents
-	collection.insert_one({'lang':1})
+	text = request.form['doc']  #creates variable based on data from text/document form
+	collection.insert_one({'lang':})
 	
-	Markup += '<table> <tr> <th> Language: </th> <th> Text: </th> </tr> <tr><td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>'
+	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
 	return Markup
 
 	'''poststr='<table> <tr> <th> Language:  </th> <th> Text: </th> </tr>' #creates Table with data
@@ -67,9 +73,6 @@ def createDoc():
 		print("o shit it aint working OOF DAMN.")
 	return post'''
 
-@app.route('/')
-def render_home():
-    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port="5000")
