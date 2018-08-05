@@ -42,7 +42,7 @@ google = oauth.remote_app(
 
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]] 
-collection = db['fs.documents'] #put the name of your collection in the quotes
+collection = db['documents'] #put the name of your collection in the quotes
 fs = gridfs.GridFS(db)
 
 app.secret_key = os.environ['SECRET_KEY']
