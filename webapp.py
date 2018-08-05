@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 from bson import ObjectId
 from flask import flash
 from threading import Lock
+from pymongo import MongoClient
 
 
 import pprint
@@ -59,9 +60,8 @@ def inject_logged_in():
 def createDoc():
 	lang = request.form['lang']
 	text = request.form['doc']
-	documents = db.fs.documents
+	documents = db.documents
 	documents.insert_one({'lang':lang})
-	documents.insert_one({'text':doc})
 	return pprint(lang,text)
 
 @app.route('/')
