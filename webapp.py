@@ -59,6 +59,7 @@ def inject_logged_in():
 def createDoc():
 	lang = request.form['lang']
 	text = request.form['doc']
+	db.documents.insertMany(lang,doc)
 	return pprint(lang,doc)
 
 
