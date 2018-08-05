@@ -58,12 +58,11 @@ def createDoc():
 	poststr='<table> <tr> <th> Language:  </th> <th> Text: </th> </tr>' #creates Table with data
 	poststr+='<td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>' #finishes table with values
 	post += Markup(poststr)
-	if post = '<table> <tr> <th> Language: </th> <th> Text: </th> </tr> <t
-	r><td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>':
+	if post = '<table> <tr> <th> Language: </th> <th> Text: </th> </tr> <tr><td> ' + str(lang) + '</td> <br> <td>' + str(text) + '</td> </table>':
 		print('everything should be working lmao')
 	else:
 		print("o shit it aint working OOF DAMN.")
-		return post
+	return post
 
 @app.route('/')
 def render_home():
