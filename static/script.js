@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 	function recieveFormData() {
 		$("#create-button").click(function(){
 			var textData = $("#comment").val();
@@ -9,4 +9,4 @@ $(document).ready(function(){
 	}
 	recieveFormData();
 });
-
+*/
