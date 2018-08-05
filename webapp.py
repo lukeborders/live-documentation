@@ -62,7 +62,7 @@ def createDoc():
 	documents = db.fs.documents
 	documents.insert_one({'lang':lang})
 	documents.insert_one({'text':doc})
-    return pprint(lang,text)
+   	return pprint(lang,text)
 
 @app.route('/')
 def render_home():
