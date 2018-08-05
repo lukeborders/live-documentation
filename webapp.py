@@ -22,7 +22,7 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_PORT"],
         os.environ["MONGO_DBNAME"])
 
-google = oAuth.remote_app(
+google = oauth.remote_app(
     'google',
     consumer_key=os.environ['GOOGLE_CLIENT_ID'],
     consumer_secret=os.environ['GOOGLE_CLIENT_SECRET'],
