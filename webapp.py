@@ -52,7 +52,7 @@ oauth = OAuth(app)
 
 @app.route('/')
 def render_home():
-	session['user'] = 'Luke'
+    session['user'] = 'Luke'
     return render_template('home.html')
 
 @app.route("/document-create", methods=['POST']) #create documentation post
