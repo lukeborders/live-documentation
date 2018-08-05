@@ -15,7 +15,7 @@ import pymongo
 import gridfs
 import sys
 
-app = Flask(__name__) 
+app = Flask(__name__)
 
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
@@ -42,7 +42,7 @@ google = oauth.remote_app(
 )
 
 client = pymongo.MongoClient(url)
-db = client[os.environ["MONGO_DBNAME"]] 
+db = client[os.environ["MONGO_DBNAME"]]
 collection = db['documents'] #put the name of your collection in the quotes
 fs = gridfs.GridFS(db)
 
@@ -59,7 +59,7 @@ def render_home():
 def createDoc():
 	lang = request.form['lang'] #create variable based on data from the language form
 	text = request.form['doc']  #creates variable based on data from text/document form
-	collection.insert_one({'lang':})
+	db.collection.insert_one({'lang':})
 	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
 	return Markup
 
