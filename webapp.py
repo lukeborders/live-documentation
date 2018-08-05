@@ -53,7 +53,7 @@ def createDoc():
 	lang = request.form['lang']
 	text = str(request.form['doc'])
 	documents = db.documents
-	documents.insert_one({'lang':1})
+	collection.insert_one({'lang':1})
 	Markup += '<h2> Language: ' + lang + '</h2> <br> <h2> Markup: ' + text + '</h2>' 
 	return Markup
 @app.route('/')
