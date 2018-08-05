@@ -61,7 +61,7 @@ def createDoc():
 	lang = request.form['lang']
 	text = request.form['doc']
 	documents = db.documents
-	documents.insert_one({'lang':lang})
+	documents.insert_one({'lang':1})
 	return pprint(lang,text)
 
 @app.route('/')
