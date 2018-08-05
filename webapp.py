@@ -60,7 +60,6 @@ def createDoc():
 	lang = request.form['lang'] #create variable based on data from the language form
 	text = request.form['doc']  #creates variable based on data from text/document form
 	collection.insert_one({'lang':})
-	
 	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
 	return Markup
 
