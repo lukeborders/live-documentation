@@ -51,7 +51,7 @@ oauth = OAuth(app)
 @app.route("/document-create", methods=['POST'])
 def createDoc():
 	lang = request.form['lang']
-	text = request.form['doc']
+	text = str(request.form['doc'])
 	documents = db.documents
 	documents.insert_one({'lang':1})
 	return print(lang,text)
