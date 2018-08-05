@@ -4,9 +4,8 @@ from flask_pymongo import PyMongo
 from bson import ObjectId
 from flask import flash
 from threading import Lock
-from flask import oauth
 
-import oauth
+
 import pprint
 import os
 import json
