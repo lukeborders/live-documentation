@@ -59,11 +59,10 @@ def inject_logged_in():
 def createDoc():
 	lang = request.form['lang']
 	text = request.form['doc']
-	db.documents.insertMany ([
-		{ language:lang },
-		{ text:doc }
-	])
-	return pprint(lang,text)
+	documents = db.fs.documents
+	documents.insert_one({'lang':lang})
+	documents.insert_one({'text':doc})
+    return pprint(lang,text)
 
 @app.route('/')
 def render_home():
