@@ -1,5 +1,4 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup, make_response, render_template
-from flask_oauthlib.client import OAuth
 from flask_pymongo import PyMongo
 from bson import ObjectId
 from flask import flash
@@ -25,21 +24,6 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_DBNAME"])
 
 app.secret_key = os.environ['SECRET_KEY']
-oauth = OAuth(app)
-
-google = oauth.remote_app(
-    'google',
-    consumer_key=os.environ['GOOGLE_CLIENT_ID'],
-    consumer_secret=os.environ['GOOGLE_CLIENT_SECRET'],
-    request_token_params={
-        'scope': 'email'
-    },
-    base_url='https://www.googleapis.com/oauth2/v1/',
-    request_token_url=None,
-    access_token_method='POST',
-    access_token_url='https://accounts.google.com/o/oauth2/token',
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
-)
 
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
@@ -53,7 +37,7 @@ oauth = OAuth(app)
 @app.route('/')
 def render_home():
    	   session['user'] = 'Luke'
-    return render_template('home.html')
+   	   return render_template('home.html')
 
 @app.route("/document-create", methods=['POST']) #create documentation post
 def createDoc():
