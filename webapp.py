@@ -45,7 +45,7 @@ def createDoc():
 	text = request.form['doc']  #creates variable based on data from text/document form
 	db.collection.insert_one({'lang':lang}) # create document with 'lang ' as its key and the language variable as its value 
 	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
-   return Markup
+	return Markup
 
 if __name__ == '__main__':
     app.run(debug=True, port="5000")
