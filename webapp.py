@@ -31,8 +31,6 @@ collection = db['documents'] #put the name of your collection in the quotes
 fs = gridfs.GridFS(db)
 
 app.secret_key = os.environ['SECRET_KEY']
-oauth = OAuth(app)
-
 
 @app.route('/')
 def render_home():
