@@ -52,15 +52,15 @@ oauth = OAuth(app)
 
 @app.route('/')
 def render_home():
-   	 session['user'] = 'Luke'
+   	   session['user'] = 'Luke'
     return render_template('home.html')
 
 @app.route("/document-create", methods=['POST']) #create documentation post
 def createDoc():
-	lang = request.form['lang'] #create variable based on data from the language form
-	text = request.form['doc']  #creates variable based on data from text/document form
-	db.collection.insert_one({'lang':lang}) # create document with 'lang ' as its key and the language variable as its value 
-	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
+	    lang = request.form['lang'] #create variable based on data from the language form
+	    text = request.form['doc']  #creates variable based on data from text/document form
+	    db.collection.insert_one({'lang':lang}) # create document with 'lang ' as its key and the language variable as its value 
+	    Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
     return Markup
 
 	'''poststr='<table> <tr> <th> Language:  </th> <th> Text: </th> </tr>' #creates Table with data
