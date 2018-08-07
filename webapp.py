@@ -39,9 +39,9 @@ def render_home():
 @app.route("/document-create", methods=['POST']) #create documentation post
 def createDoc():
 	lang = request.form['lang'] #create variable based on data from the language form
-	text = request.form['doc']  #creates variable based on data from text/document form
-	db.collection.insertOne({ 'text': doc })
-	db.collection.insertOne({ 'lang': lang }) 
+	text = request.args['doc']  #creates variable based on data from text/document form
+	db.collection.insert({ 'text': doc })
+	db.collection.insert({ 'lang': lang }) 
 	return render_template('/document-create')
 
 def showPost():
