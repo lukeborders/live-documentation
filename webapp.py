@@ -15,6 +15,7 @@ import gridfs
 import sys
 
 app = Flask(__name__)
+app.debug = False
 
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
