@@ -15,16 +15,16 @@ import sys
 app = Flask(__name__)
 app.debug = False
 
- '''url = 'mongodb://{}:{}@{}:{}/{}'.format(
+ url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
         os.environ["MONGO_PASSWORD"],
         os.environ["MONGO_HOST"],
         os.environ["MONGO_PORT"],
         os.environ["MONGO_DBNAME"])
-'''
+	
 app.secret_key = os.environ['SECRET_KEY']
 
-client = pymongo.MongoClient('ds113402.mlab.com')
+client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
 collection = db['documents'] #put the name of your collection in the quotes
 fs = gridfs.GridFS(db)
