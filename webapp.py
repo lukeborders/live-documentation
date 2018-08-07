@@ -15,7 +15,7 @@ import sys
 app = Flask(__name__)
 app.debug = False
 
- url = 'mongodb://{}:{}@{}:{}/{}'.format(
+url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
         os.environ["MONGO_PASSWORD"],
         os.environ["MONGO_HOST"],
