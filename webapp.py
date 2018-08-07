@@ -5,8 +5,6 @@ from flask import flash
 from threading import Lock
 from pymongo import MongoClient
 
-
-
 import pprint
 import os
 import json
@@ -17,16 +15,16 @@ import sys
 app = Flask(__name__)
 app.debug = False
 
-url = 'mongodb://{}:{}@{}:{}/{}'.format(
+ '''url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
         os.environ["MONGO_PASSWORD"],
         os.environ["MONGO_HOST"],
         os.environ["MONGO_PORT"],
         os.environ["MONGO_DBNAME"])
-
+'''
 app.secret_key = os.environ['SECRET_KEY']
 
-client = pymongo.MongoClient(url)
+client = pymongo.MongoClient('ds113402.mlab.com')
 db = client[os.environ["MONGO_DBNAME"]]
 collection = db['documents'] #put the name of your collection in the quotes
 fs = gridfs.GridFS(db)
@@ -61,10 +59,5 @@ def showPost():
 			tbl += "</table>"
 			return Markup(tbl)
 		
-		
-		
-		
-	
-	
 if __name__ == '__main__':
     app.run(debug=True, port="5000")
