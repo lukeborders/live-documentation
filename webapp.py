@@ -49,16 +49,17 @@ def createDoc():
 def showPost():
 	tbl='<table> <tr> <td> Language </td> <td> Text </td> </tr>'
 	for document in db.collection.find():
-		tbl += "<tr>"
-		tbl += "<td>"
-		tbl += str(doc['lang'])
-		tbl += "</td>"
-		tbl += "<td>"
-		tbl += str(doc['text'])
-		tbl += "</td>"
-		tbl += "</tr>"
-		tbl += "</table>"
-		return Markup(tbl)
+		if session['user']:
+			tbl += "<tr>"
+			tbl += "<td>"
+			tbl += str(doc['lang'])
+			tbl += "</td>"
+			tbl += "<td>"
+			tbl += str(doc['text'])
+			tbl += "</td>"
+			tbl += "</tr>"
+			tbl += "</table>"
+			return Markup(tbl)
 		
 		
 		
