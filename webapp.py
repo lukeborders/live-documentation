@@ -42,9 +42,28 @@ def render_home():
 def createDoc():
 	lang = request.form['lang'] #create variable based on data from the language form
 	text = request.form['doc']  #creates variable based on data from text/document form
-	db.collection.insertOne({'lang':4}) # create document with 'lang ' as its key and the language variable as its value 
-	Markup +='<h1> Language: ' + str(lang) + '</h1>' + '<br>' + '<h1> Text: ' + str(text) + '</h1>'
+	db.collection.insertOne({ 'text': doc })
+	db.collection.insertOne({ 'lang': lang }) 
 	return render_template('/document-create')
 
+def showPost():
+	tbl='<table> <tr> <td> Language </td> <td> Text </td> </tr>'
+	for document in db.collection.find():
+		tbl += "<tr>"
+		tbl += "<td>"
+		tbl += str(doc['lang'])
+		tbl += "</td>"
+		tbl += "<td>"
+		tbl += str(doc['text'])
+		tbl += "</td>"
+		tbl += "</tr>"
+		tbl += "</table>"
+		return Markup(tbl)
+		
+		
+		
+		
+	
+	
 if __name__ == '__main__':
     app.run(debug=True, port="5000")
